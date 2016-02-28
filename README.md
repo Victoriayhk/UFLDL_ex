@@ -1,6 +1,12 @@
 UFLDL 编程训练
 ==============
 
+UFLDL有两个版的教程页面, [页面1](http://ufldl.stanford.edu/tutorial/), [页面2(有中文版)](http://ufldl.stanford.edu/wiki/index.php/UFLDL_Tutorial), 这两个的内容是一样的, 第一个是更新的一个版本, 刚开始本人follow的是第一个, 但目前没有整理完善, 组织顺序也很奇怪, 后来才转到第二个.
+
+ex1和nn是follow第一个时完成的, 后面的是follow第二个时完成的.
+
+第一个中提供的[start code](http://ufldl.stanford.edu/tutorial/StarterCode)将所有UFLDL练习代码进行了整合, 用这个start code感觉更好些.
+
 已完成的有:
 
 + ex1, 单层回归:
@@ -13,5 +19,8 @@ UFLDL 编程训练
 + pca, [主成分分析](http://ufldl.stanford.edu/wiki/index.php/Implementing_PCA/Whitening), 这一节内容还包括pca白化, zca白化
 	+ [2d](http://ufldl.stanford.edu/wiki/index.php/Exercise:PCA_in_2D)
 	+ [pca和白化](http://ufldl.stanford.edu/wiki/index.php/Exercise:PCA_and_Whitening)
++ [softmax回归](http://ufldl.stanford.edu/wiki/index.php/Exercise:Softmax_Regression), 这一节与ex1中略有有重复, 这一节代码要为下一节stl服务, 需要完成
+
+以上除了nn是用python编写, 其它均为matlab.
 
 略去数据集, minfun等部分.
