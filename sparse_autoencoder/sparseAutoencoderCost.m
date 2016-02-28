@@ -48,11 +48,11 @@ a2 = sigmoid(bsxfun(@plus, W1 * data, b1)); % h,i * i,m --> h,m
 a3 = sigmoid(bsxfun(@plus, W2 * a2,   b2)); % o,h * h,m --> o,m
 
 % average activation
-rho_hat = mean(a2, 2);						% h,1
+rho = mean(a2, 2);						% h,1
 
-% middle termsb
-div_1    = bsxfun(@rdivide, sparsityParam, rho_hat);
-div_2	 = bsxfun(@rdivide, 1-sparsityParam, 1-rho_hat);
+% middle terms
+div_1    = bsxfun(@rdivide, sparsityParam, rho);
+div_2	 = bsxfun(@rdivide, 1-sparsityParam, 1-rho);
 
 % cost
 squared_err    = 0.5/m    * sum(sum((a3-data).^2));
@@ -61,14 +61,14 @@ sparse_penalty = beta     * sum(sparsityParam*log(div_1) + (1-sparsityParam)*log
 cost           = squared_err + weight_decay + sparse_penalty;
 
 % delta
-delta3 = (a3-data).* a3 .* (1-a3);
+delta3 = (a3-data) .* a3 .* (1-a3); % sigmoid_grad(z3) = a3 .* (1-a3)
 delta2 = bsxfun(@plus, W2'*delta3, beta*(-div_1+div_2)) .* a2 .* (1-a2);
 
 % backword propagation
-W2grad = delta3*a2'/m   + lambda*W2;
 W1grad = delta2*data'/m + lambda*W1;
-b2grad = sum(delta3,2)./m;
-b1grad = sum(delta2,2)./m;
+W2grad = delta3*a2'  /m + lambda*W2;
+b2grad = sum(delta3, 2)./m;
+b1grad = sum(delta2, 2)./m;
 
 %-------------------------------------------------------------------
 % After computing the cost and gradient, we will convert the gradients back
