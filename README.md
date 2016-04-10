@@ -21,6 +21,7 @@ ex1和nn是follow第一个时完成的, 后面的是follow第二个时完成的.
 	+ [pca和白化](http://ufldl.stanford.edu/wiki/index.php/Exercise:PCA_and_Whitening)
 + [softmax回归](http://ufldl.stanford.edu/wiki/index.php/Exercise:Softmax_Regression), 这一节与ex1中略有有重复, 这一节代码要为下一节stl服务, 需要完成
 + [Self-Taught Learning](http://ufldl.stanford.edu/wiki/index.php/Exercise:Self-Taught_Learning)
++ [自编码线性解码器](http://ufldl.stanford.edu/wiki/index.php/Exercise:_Implement_deep_networks_for_digit_classification), (this case is NOT done well.)
 
 以上除了nn是用python编写, 其它均为matlab.
 
